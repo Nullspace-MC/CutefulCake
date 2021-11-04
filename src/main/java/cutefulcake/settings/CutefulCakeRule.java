@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @interface CutefulCakeRule {
 
-    /** Name of the rule, keep aq default if you want rule to have the name of field */
+    /** Name of the rule, keep as default if you want rule to have the name of field */
     String name() default "";
 
     /** Description of the rule */
