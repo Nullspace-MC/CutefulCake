@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  Any field annotated with this class is considered a cake rule
- Said field should be either a String, int, long, boolean, float or double
+ Said field should be either a String, boolean, int, long, boolean, float or double
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
