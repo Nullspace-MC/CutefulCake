@@ -6,8 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- Any field annotated with this class is considered a carpet rule
- Said field should be either a String, int, boolean or double
+ Any field annotated with this class is considered a cake rule
+ Said field should be either a String, int, long, boolean, float or double
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
