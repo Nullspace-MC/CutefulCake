@@ -7,6 +7,7 @@ public class CutefulCakeSettings {
     private CutefulCakeSettings() {}
 
     // Put rules here, with annotation @CutefulCakeRule
+    // Must be a field of type : String, int, long, float, double or boolean
     // If you do not define a name, it will be defined automatically
     // Description isn't required, but probably better to add one anyway
     // options is an array of options. these options must be String, not of the type of the field
