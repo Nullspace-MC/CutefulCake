@@ -16,6 +16,11 @@ public class CutefulCakeSettings {
     @CutefulCakeRule(description = "Disables explosions breaking blocks")
     public static boolean explosionNoBlockDamage = false;
 
+    @CutefulCakeRule(
+            description = "Sets the ray size multiplier by this value",
+            options = {"-0.1", "0.0", "0.5", "1.0"})
+    public static float explosionRandomRatio = -0.1F;
+
     public static CutefulCakeSettings getInstance() {
         if (instance == null) {
             instance = new CutefulCakeSettings();
