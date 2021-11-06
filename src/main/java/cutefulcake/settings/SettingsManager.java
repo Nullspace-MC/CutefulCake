@@ -60,7 +60,6 @@ public class SettingsManager {
     public static void setupSettingsManager() throws IOException {
         File source = MinecraftServer.getServer().getRunDirectory();
         cakeConfFile = new File(source, MinecraftServer.getServer().getLevelName() + File.separator + "cake.conf");
-        System.out.println(cakeConfFile);
         if (!cakeConfFile.createNewFile()) {
             CutefulCake.LOG.info("Config file cake.conf found, now loading");
             SettingsManager.loadCakeConf();

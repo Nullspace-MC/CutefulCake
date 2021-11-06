@@ -1,7 +1,7 @@
 package cutefulcake.settings;
 
 public class CutefulCakeSettings {
-    public static final String cakeVersion = "CutefulCake_version_1.0.0";
+    public static final String cakeVersion = "CutefulCake_version_@VERSION@";
     private static CutefulCakeSettings instance;
 
     private CutefulCakeSettings() {}

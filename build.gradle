@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
 	id 'fabric-loom' version "0.7-SNAPSHOT" // To use chocoloom, change the version to a commit hash
 	id 'maven-publish'
@@ -65,6 +67,18 @@ processResources {
 		expand "version": project.version
 	}
 }
+
+// no idea why this works, but ty nessie
+def copyDir = "$compileJava.temporaryDir/replaced"
+task tokenReplace(type: Sync) {
+	from(sourceSets.main.java.sourceDirectories)
+	into copyDir
+	filter(ReplaceTokens, tokens: [
+			VERSION: project.version,
+	])
+}
+compileJava.setSource(copyDir)
+compileJava.dependsOn(tokenReplace)
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is
 // this fixes some edge cases with special characters not displaying correctly
