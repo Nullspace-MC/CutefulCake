@@ -13,6 +13,9 @@ public class CutefulCakeSettings {
     // options is an array of options. these options must be String, not of the type of the field
     // strict may be set to true if you want players to be only able to use options defined in options
 
+    @CutefulCakeRule(description = "Disables explosions breaking blocks")
+    public static boolean explosionNoBlockDamage = false;
+
     public static CutefulCakeSettings getInstance() {
         if (instance == null) {
             instance = new CutefulCakeSettings();
