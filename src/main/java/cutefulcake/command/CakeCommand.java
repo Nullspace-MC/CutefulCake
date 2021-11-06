@@ -160,6 +160,7 @@ public class CakeCommand extends AbstractCommand {
                 break;
             }
         }
+        print.append("\n");
         print.append(printCakeVersion());
         return print;
     }
