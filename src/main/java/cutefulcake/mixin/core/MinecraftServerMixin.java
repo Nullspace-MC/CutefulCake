@@ -1,5 +1,6 @@
 package cutefulcake.mixin.core;
 
+import cutefulcake.CutefulCake;
 import cutefulcake.settings.SettingsManager;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,13 +14,14 @@ import java.io.IOException;
 public class MinecraftServerMixin {
 
     // in case another mod changes level name during runtime ofc
-    @Inject(method = "setLevelName", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "setLevelName", at = @At("TAIL"))
     private void whenLevelNameIsDefined(String levelName, CallbackInfo ci) {
-        try {
-            SettingsManager.setupSettingsManager();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ci.cancel();
-        }
+        CutefulCake.initializeCakeServer();
+    }
+
+
+    @Inject(method = "shutdown", at = @At(value = "HEAD"))
+    private void onTickServer(CallbackInfo ci) {
+        CutefulCake.tickCakeServer();
     }
 }

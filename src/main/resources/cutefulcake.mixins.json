@@ -9,7 +9,8 @@
     "core.CommandManagerMixin",
     "core.MinecraftServerMixin",
     "feature.explosionNoBlockDamage.ExplosionMixin",
-    "feature.explosionRandomRatio.ExplosionMixin"
+    "feature.explosionRandomRatio.ExplosionMixin",
+    "core.PlayerListHeaderS2CPacketMixin"
   ],
   "injectors": {
     "defaultRequire": 1

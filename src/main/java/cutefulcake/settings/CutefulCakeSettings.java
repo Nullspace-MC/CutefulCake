@@ -21,6 +21,12 @@ public class CutefulCakeSettings {
             options = {"-0.1", "0.0", "0.5", "1.0"})
     public static float explosionRandomRatio = -0.1F;
 
+    @CutefulCakeRule(
+            description = "Sets at which frequency the loggers' values are recalculated",
+            options = {"20", "40", "100"}
+    )
+    public static int loggerRefreshRate = 20;
+
     public static CutefulCakeSettings getInstance() {
         if (instance == null) {
             instance = new CutefulCakeSettings();
