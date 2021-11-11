@@ -23,7 +23,6 @@ public class CutefulCakeRuleAsObject {
     }
 
     public boolean setValue(String s) {
-        CutefulCakeSettings settings = CutefulCakeSettings.getInstance();
         if (strict) {
             if (!ArrayUtils.contains(options, s)) {
                 return false;
@@ -32,22 +31,22 @@ public class CutefulCakeRuleAsObject {
         try {
             switch (field.getType().getName()) {
                 case "String":
-                    field.set(settings, s);
+                    field.set(null, s);
                     break;
                 case "int":
-                    field.setInt(settings, Integer.parseInt(s));
+                    field.setInt(null, Integer.parseInt(s));
                     break;
                 case "long":
-                    field.setLong(settings, Long.parseLong(s));
+                    field.setLong(null, Long.parseLong(s));
                     break;
                 case "float":
-                    field.setFloat(settings, Float.parseFloat(s));
+                    field.setFloat(null, Float.parseFloat(s));
                     break;
                 case "double":
-                    field.setDouble(settings, Double.parseDouble(s));
+                    field.setDouble(null, Double.parseDouble(s));
                     break;
                 case "boolean":
-                    field.setBoolean(settings, Boolean.parseBoolean(s));
+                    field.setBoolean(null, Boolean.parseBoolean(s));
                     break;
             }
         } catch (IllegalAccessException ignored) {

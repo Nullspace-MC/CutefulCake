@@ -1,6 +1,5 @@
 package cutefulcake.command;
 
-import cutefulcake.CutefulCake;
 import cutefulcake.settings.CutefulCakeRuleAsObject;
 import cutefulcake.settings.CutefulCakeSettings;
 import cutefulcake.settings.SettingsManager;
@@ -15,7 +14,6 @@ import net.minecraft.text.Style;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 
-import java.io.IOException;
 import java.util.*;
 
 public class CakeCommand extends AbstractCommand {
@@ -175,7 +173,7 @@ public class CakeCommand extends AbstractCommand {
         Style nonSelected = new Style().setColor(Formatting.AQUA).setUnderline(true);
         String valueInField = null;
         try {
-            valueInField = String.valueOf(rule.field.get(CutefulCakeSettings.getInstance()));
+            valueInField = String.valueOf(rule.field.get(null));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
