@@ -2,6 +2,7 @@ package cutefulcake.mixin.core;
 
 import cutefulcake.command.CakeCommand;
 import cutefulcake.command.LogCommand;
+import cutefulcake.command.PlayerCommand;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.CommandRegistry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,5 +20,6 @@ public class CommandManagerMixin extends CommandRegistry {
     private void addCommands(CallbackInfo ci) {
         this.registerCommand(new CakeCommand());
         this.registerCommand(new LogCommand());
+        this.registerCommand(new PlayerCommand());
     }
 }
