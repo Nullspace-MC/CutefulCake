@@ -1,6 +1,7 @@
 package cutefulcake.mixin.core;
 
 import cutefulcake.command.CakeCommand;
+import cutefulcake.command.CounterCommand;
 import cutefulcake.command.LogCommand;
 import cutefulcake.command.PlayerCommand;
 import net.minecraft.server.command.CommandManager;
@@ -21,5 +22,6 @@ public class CommandManagerMixin extends CommandRegistry {
         this.registerCommand(new CakeCommand());
         this.registerCommand(new LogCommand());
         this.registerCommand(new PlayerCommand());
+        this.registerCommand(new CounterCommand());
     }
 }

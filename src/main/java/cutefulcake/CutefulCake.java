@@ -1,5 +1,6 @@
 package cutefulcake;
 
+import cutefulcake.counter.CounterRegistry;
 import cutefulcake.logging.LoggerRegistry;
 import cutefulcake.settings.SettingsManager;
 import net.fabricmc.api.ModInitializer;
@@ -15,6 +16,7 @@ public class CutefulCake implements ModInitializer {
 	public void onInitialize() {
 		SettingsManager.parseRules();
 		LoggerRegistry.registerAllLoggers();
+		CounterRegistry.setupCounters();
 	}
 
 	public static void initializeCakeServer() {

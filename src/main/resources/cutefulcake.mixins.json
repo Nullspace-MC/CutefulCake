@@ -8,9 +8,10 @@
   "server": [
     "core.CommandManagerMixin",
     "core.MinecraftServerMixin",
+    "core.PlayerListHeaderS2CPacketMixin",
     "feature.explosionNoBlockDamage.ExplosionMixin",
     "feature.explosionRandomRatio.ExplosionMixin",
-    "core.PlayerListHeaderS2CPacketMixin"
+    "counter.HopperBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

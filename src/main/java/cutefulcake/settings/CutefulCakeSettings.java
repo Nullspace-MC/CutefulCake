@@ -23,4 +23,7 @@ public class CutefulCakeSettings {
             options = {"20", "40", "100"}
     )
     public static int loggerRefreshRate = 20;
+
+    @CutefulCakeRule(description = "Enables hopper counters")
+    public static boolean hopperCounters = false;
 }
