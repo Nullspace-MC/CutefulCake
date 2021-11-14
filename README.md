@@ -37,6 +37,11 @@ If you have any issue, or suggestion, you can either open an issue/pull request 
 * Allows you to see tps and mspt of server
 * No parameters
 
+`counter`
+* Allows you to see the content of a hopper counter
+* Parameters are the different wool colors
+* Cannot log without a parameter
+
 ### Commands added :
 
 | Command name | Description                                             |
