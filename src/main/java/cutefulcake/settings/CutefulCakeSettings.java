@@ -15,14 +15,31 @@ public class CutefulCakeSettings {
 
     @CutefulCakeRule(
             description = "Sets the ray size multiplier by this value",
-            options = {"-1.0", "0.0", "0.5", "1.0"})
+            options = {"-1.0", "0.0", "0.5", "1.0"},
+            validator = ExplosionRandomRatioValidator.class
+    )
     public static float explosionRandomRatio = -1.0F;
+
+    public static class ExplosionRandomRatioValidator extends Validator<Float> {
+        @Override
+        public Float validate(Float value) {
+            return (value == -1.0F || (value >= 0F && value <= 1F)) ? value : null;
+        }
+    }
 
     @CutefulCakeRule(
             description = "Sets at which frequency the loggers' values are recalculated",
-            options = {"20", "40", "100"}
+            options = {"20", "40", "100"},
+            validator = LoggerRefreshRateValidator.class
     )
     public static int loggerRefreshRate = 20;
+
+    public static class LoggerRefreshRateValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(Integer value) {
+            return (value >= 0) ? value : null;
+        }
+    }
 
     @CutefulCakeRule(description = "Enables hopper counters")
     public static boolean hopperCounters = false;

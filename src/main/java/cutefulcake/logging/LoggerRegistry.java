@@ -36,6 +36,7 @@ public class LoggerRegistry {
     }
 
     public static void tickLoggers() {
+        if (CutefulCakeSettings.loggerRefreshRate == 0) return;
         MinecraftServer server = MinecraftServer.getServer();
         if (server.getTicks() % CutefulCakeSettings.loggerRefreshRate == 0) {
             tickTpsHud(server);

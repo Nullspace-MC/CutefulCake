@@ -2,14 +2,17 @@ package cutefulcake.settings;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
-public class CutefulCakeRuleAsObject {
+public class CutefulCakeRuleAsObject<T> {
     public String name;
     public String description;
     public String[] options;
     public boolean strict;
     public Field field;
+    public ArrayList<Validator<T>> validators = new ArrayList<>();
 
     public CutefulCakeRuleAsObject (CutefulCakeRule r, Field field) {
         name = r.name();
@@ -20,33 +23,50 @@ public class CutefulCakeRuleAsObject {
         options = r.options();
         strict = r.strict();
         this.field = field;
+        for (Class v : r.validator()) this.validators.add((Validator<T>) callConstructor(v));
     }
 
-    public boolean setValue(String s) {
+    private Validator<?> callConstructor(Class<? extends Validator<?>> classToConstruct) {
+        try {
+            Constructor<? extends Validator<?>> constructor = classToConstruct.getConstructor();
+            constructor.setAccessible(true);
+            return constructor.newInstance();
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean setValue(String value) {
         if (strict) {
-            if (!ArrayUtils.contains(options, s)) {
+            if (!ArrayUtils.contains(options, value)) {
                 return false;
             }
         }
         try {
             switch (field.getType().getName()) {
                 case "String":
-                    field.set(null, s);
+                    for (Validator<T> validator : validators) if (validator.validate((T) value) == null) return false;
+                    field.set(null, value);
                     break;
                 case "int":
-                    field.setInt(null, Integer.parseInt(s));
+                    for (Validator<T> validator : validators) if (validator.validate((T) (Object) Integer.parseInt(value)) == null) return false;
+                    field.setInt(null, Integer.parseInt(value));
                     break;
                 case "long":
-                    field.setLong(null, Long.parseLong(s));
+                    for (Validator<T> validator : validators) if (validator.validate((T) (Object) Long.parseLong(value)) == null) return false;
+                    field.setLong(null, Long.parseLong(value));
                     break;
                 case "float":
-                    field.setFloat(null, Float.parseFloat(s));
+                    for (Validator<T> validator : validators) if (validator.validate((T) (Object) Float.parseFloat(value)) == null) return false;
+                    field.setFloat(null, Float.parseFloat(value));
                     break;
                 case "double":
-                    field.setDouble(null, Double.parseDouble(s));
+                    for (Validator<T> validator : validators) if (validator.validate((T) (Object) Double.parseDouble(value)) == null) return false;
+                    field.setDouble(null, Double.parseDouble(value));
                     break;
                 case "boolean":
-                    field.setBoolean(null, Boolean.parseBoolean(s));
+                    for (Validator<T> validator : validators) if (validator.validate((T) (Object) Boolean.parseBoolean(value)) == null) return false;
+                    field.setBoolean(null, Boolean.parseBoolean(value));
                     break;
             }
         } catch (IllegalAccessException ignored) {

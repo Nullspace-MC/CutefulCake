@@ -24,4 +24,6 @@ import java.lang.annotation.Target;
 
     /** Set to true in case you want rule to be only one of the options given */
     boolean strict() default false;
+
+    Class<? extends Validator>[] validator() default {};
 }

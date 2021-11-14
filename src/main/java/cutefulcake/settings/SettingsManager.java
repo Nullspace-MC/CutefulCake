@@ -51,6 +51,11 @@ public class SettingsManager {
             }
 
             @Override
+            public Class<? extends Validator>[] validator() {
+                return r.validator();
+            }
+
+            @Override
             public Class<? extends Annotation> annotationType() {
                 return CutefulCakeRule.class;
             }
