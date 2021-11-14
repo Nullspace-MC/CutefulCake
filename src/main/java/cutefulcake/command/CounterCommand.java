@@ -56,7 +56,7 @@ public class CounterCommand extends AbstractCommand {
         Set<String> nameSet = counter.getCounterMap().keySet();
         if (nameSet.isEmpty()) return new LiteralText("The counter " + counterColor.replace('_', ' ') + " has no item");
         double hoursRunning = counter.getRunningTime() / 72000D;
-        LiteralText print = new LiteralText("Counter " + counterColor.replace('_', ' ') + " (running for " + getFancyTime(hoursRunning) + ") : " + counter.getTotalCount() + " items | " + MathUtil.round(2, counter.getTotalCount() / hoursRunning) + " items/h\n");
+        LiteralText print = new LiteralText("Counter " + counterColor.replace('_', ' ') + " (running for " + MathUtil.getFancyTime(hoursRunning) + ") : " + counter.getTotalCount() + " items | " + MathUtil.round(2, counter.getTotalCount() / hoursRunning) + " items/h\n");
         Iterator<String> ite = nameSet.iterator();
         String itemName = ite.next();
         while (true) {
@@ -69,13 +69,5 @@ public class CounterCommand extends AbstractCommand {
             }
         }
         return print;
-    }
-
-    private String getFancyTime(double hours) {
-        if (hours > 1) return MathUtil.round(2, hours) + "h";
-        hours *= 60D;
-        if (hours > 1) return MathUtil.round(2, hours) + "m";
-        hours *= 60D;
-        return MathUtil.round(2, hours) + "s";
     }
 }

@@ -15,8 +15,8 @@ public class CutefulCake implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		SettingsManager.parseRules();
-		LoggerRegistry.registerAllLoggers();
 		CounterRegistry.setupCounters();
+		LoggerRegistry.registerAllLoggers();
 	}
 
 	public static void initializeCakeServer() {
