@@ -79,7 +79,7 @@ public class CakeCommand extends AbstractCommand {
             } else if (args[0].equals("reset")) {
                 if (args.length == 1) { // cake reset
                     for (CutefulCakeRuleAsObject rule : SettingsManager.rules.values()) {
-                        if (!removeFromFile(rule) || !setRuleValue(rule, rule.options[0])) {
+                        if (!removeFromFile(rule) || !setRuleValue(rule, rule.defaultValue)) {
                             throw new SyntaxException();
                         }
                     }
@@ -88,7 +88,7 @@ public class CakeCommand extends AbstractCommand {
                     throw new SyntaxException();
                 }
                 CutefulCakeRuleAsObject rule = SettingsManager.rules.get(args[1]);
-                if (removeFromFile(rule) && setRuleValue(rule, rule.options[0])) { // cake reset [rule]
+                if (removeFromFile(rule) && setRuleValue(rule, rule.defaultValue)) { // cake reset [rule]
                     source.sendMessage(new LiteralText("Successfully reset the value of " + args[1]));
                 } else {
                     throw new SyntaxException();
@@ -120,7 +120,7 @@ public class CakeCommand extends AbstractCommand {
     }
 
     private boolean removeFromFile(CutefulCakeRuleAsObject rule) {
-        if (setRuleValue(rule, rule.options[0])) {
+        if (setRuleValue(rule, rule.defaultValue)) {
             SettingsManager.removeFromCakeConfRule(rule.name);
             return true;
         }
@@ -192,7 +192,7 @@ public class CakeCommand extends AbstractCommand {
             values.append(" ");
         }
         values.append("\n");
-        values.append(new LiteralText("Current value : " + valueInField + " (" + (rule.options[0].equals(valueInField) ? "default" : "modified") + " value)").setStyle(
+        values.append(new LiteralText("Current value : " + valueInField + " (" + (rule.defaultValue.equals(valueInField) ? "default" : "modified") + " value)").setStyle(
                 new Style().setBold(true).setColor(Formatting.RED)
         ));
         print.append(values);

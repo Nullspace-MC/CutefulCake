@@ -6,12 +6,15 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import static java.lang.String.valueOf;
+
 public class CutefulCakeRuleAsObject<T> {
     public String name;
     public String description;
     public String[] options;
     public boolean strict;
     public Field field;
+    public String defaultValue;
     public ArrayList<Validator<T>> validators = new ArrayList<>();
 
     public CutefulCakeRuleAsObject (CutefulCakeRule r, Field field) {
@@ -23,6 +26,12 @@ public class CutefulCakeRuleAsObject<T> {
         options = r.options();
         strict = r.strict();
         this.field = field;
+        try {
+            defaultValue = valueOf(field.get(null));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
         for (Class v : r.validator()) this.validators.add((Validator<T>) callConstructor(v));
     }
 
