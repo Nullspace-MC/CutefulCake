@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "cutefulcake.CutefulCake"
+      "net.nullspace_mc.cutefulcake.CutefulCake"
     ]
   },
   "mixins": [
