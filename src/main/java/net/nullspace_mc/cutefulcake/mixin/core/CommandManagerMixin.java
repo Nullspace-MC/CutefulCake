@@ -1,9 +1,6 @@
 package net.nullspace_mc.cutefulcake.mixin.core;
 
-import net.nullspace_mc.cutefulcake.command.CakeCommand;
-import net.nullspace_mc.cutefulcake.command.CounterCommand;
-import net.nullspace_mc.cutefulcake.command.LogCommand;
-import net.nullspace_mc.cutefulcake.command.PlayerCommand;
+import net.nullspace_mc.cutefulcake.command.*;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.CommandRegistry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,5 +20,6 @@ public class CommandManagerMixin extends CommandRegistry {
         this.registerCommand(new LogCommand());
         this.registerCommand(new PlayerCommand());
         this.registerCommand(new CounterCommand());
+        this.registerCommand(new TickCommand());
     }
 }

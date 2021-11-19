@@ -11,7 +11,8 @@
     "core.PlayerListHeaderS2CPacketMixin",
     "feature.explosionNoBlockDamage.ExplosionMixin",
     "feature.explosionRandomRatio.ExplosionMixin",
-    "counter.HopperBlockEntityMixin"
+    "counter.HopperBlockEntityMixin",
+    "tick.MinecraftServerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
