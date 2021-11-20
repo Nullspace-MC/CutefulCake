@@ -11,6 +11,7 @@
     "core.PlayerListHeaderS2CPacketMixin",
     "feature.explosionNoBlockDamage.ExplosionMixin",
     "feature.explosionRandomRatio.ExplosionMixin",
+    "feature.fillLimit.FillCommandCloneCommandMixin",
     "counter.HopperBlockEntityMixin",
     "tick.MinecraftServerMixin"
   ],

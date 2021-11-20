@@ -43,4 +43,17 @@ public class CutefulCakeSettings {
 
     @CutefulCakeRule(description = "Enables hopper counters")
     public static boolean hopperCounters = false;
+
+    @CutefulCakeRule(
+            description = "Sets the max amount of blocks a fill or clone command can affect",
+            options = {"32768", "1000000", "-1"},
+            validator = FillLimitValidator.class)
+    public static int fillLimit = 32768;
+
+    public static class FillLimitValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(Integer value) {
+            return value == -1 || value >= 0 ? value : null;
+        }
+    }
 }

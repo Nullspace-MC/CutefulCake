@@ -32,6 +32,12 @@ If you have any issue, or suggestion, you can either open an issue/pull request 
 * Type : boolean
 * Default : false
 
+`fillLimit`
+* Sets the max amount of blocks a fill or clone command can affect
+* Type : int
+* Default : 32768
+* Must be either -1 (no limit) or 0 or above
+
 ### Loggers :
 `tps`
 * Allows you to see tps and mspt of server
@@ -50,6 +56,7 @@ If you have any issue, or suggestion, you can either open an issue/pull request 
 | log          | Allows you to subscribe to a logger                     |
 | player       | Allows you to spawn fake players                        |
 | counter      | Allows you to see the info of a counter, or to reset it |
+| tick         | Allows you to allow server to go faster for testing     |
 
 ## License
 
