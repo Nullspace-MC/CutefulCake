@@ -13,6 +13,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
+import net.nullspace_mc.cutefulcake.util.MessageUtil;
 
 import java.util.*;
 
@@ -71,7 +72,7 @@ public class CakeCommand extends AbstractCommand {
                 CutefulCakeRuleAsObject rule = SettingsManager.rules.get(args[1]);
                 if (args.length == 3) { // cake setDefault [rule] [value]
                     if (saveToFile(rule, args[2])) {
-                        source.sendMessage(new LiteralText("Set the default value of " + args[1] + " to " + args[2]));
+                        MessageUtil.sendToAllOperators(new LiteralText("Set the default value of " + args[1] + " to " + args[2]));
                     } else {
                         throw new SyntaxException();
                     }
@@ -83,13 +84,14 @@ public class CakeCommand extends AbstractCommand {
                             throw new SyntaxException();
                         }
                     }
-                    source.sendMessage(new LiteralText("Successfully reset cake config!"));
+                    MessageUtil.sendToAllOperators(new LiteralText("Successfully reset cake config!"));
+                    return;
                 } else if (args.length > 2) { // cake reset [X] [X]
                     throw new SyntaxException();
                 }
                 CutefulCakeRuleAsObject rule = SettingsManager.rules.get(args[1]);
                 if (removeFromFile(rule) && setRuleValue(rule, rule.defaultValue)) { // cake reset [rule]
-                    source.sendMessage(new LiteralText("Successfully reset the value of " + args[1]));
+                    MessageUtil.sendToAllOperators(new LiteralText("Successfully reset the value of " + args[1]));
                 } else {
                     throw new SyntaxException();
                 }
@@ -108,7 +110,7 @@ public class CakeCommand extends AbstractCommand {
                                 setClickEvent(new ClickEvent(
                                         ClickEvent.Action.SUGGEST_COMMAND,
                                         "/cake setDefault " + args[0] + " " + args[1]))));
-                        source.sendMessage(print);
+                        MessageUtil.sendToAllOperators(print);
                     } else {
                         throw new SyntaxException();
                     }
