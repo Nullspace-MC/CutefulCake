@@ -32,12 +32,12 @@ public class CutefulCakeRuleAsObject<T> {
             e.printStackTrace();
             throw new RuntimeException();
         }
-        for (Class v : r.validator()) this.validators.add((Validator<T>) callConstructor(v));
+        for (Class<? extends Validator> v : r.validator()) this.validators.add((Validator<T>) callConstructor(v));
     }
 
-    private Validator<?> callConstructor(Class<? extends Validator<?>> classToConstruct) {
+    private Validator<?> callConstructor(Class<? extends Validator> classToConstruct) {
         try {
-            Constructor<? extends Validator<?>> constructor = classToConstruct.getConstructor();
+            Constructor<? extends Validator> constructor = classToConstruct.getConstructor();
             constructor.setAccessible(true);
             return constructor.newInstance();
         } catch (ReflectiveOperationException e) {

@@ -12,6 +12,7 @@
     "feature.explosionNoBlockDamage.ExplosionMixin",
     "feature.explosionRandomRatio.ExplosionMixin",
     "feature.fillLimit.FillCommandCloneCommandMixin",
+    "feature.fillUpdates.FillCommandCloneCommandSetBlockCommandMixin",
     "counter.HopperBlockEntityMixin",
     "tick.MinecraftServerMixin"
   ],

@@ -56,4 +56,7 @@ public class CutefulCakeSettings {
             return value == -1 || value >= 0 ? value : null;
         }
     }
+
+    @CutefulCakeRule(description = "Allow /fill and /clone commands to produce block updates or not")
+    public static boolean fillUpdates = true;
 }
