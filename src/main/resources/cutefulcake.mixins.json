@@ -13,6 +13,7 @@
     "feature.explosionRandomRatio.ExplosionMixin",
     "feature.fillLimit.FillCommandCloneCommandMixin",
     "feature.fillUpdates.FillCommandCloneCommandSetBlockCommandMixin",
+    "feature.emeraldOreUpdateSuppressor.OreBlockMixin",
     "counter.HopperBlockEntityMixin",
     "tick.MinecraftServerMixin"
   ],

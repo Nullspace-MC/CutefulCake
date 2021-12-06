@@ -38,6 +38,11 @@ If you have any issue, or suggestion, you can either open an issue/pull request 
 * Default : 32768
 * Must be either -1 (no limit) or 0 or above
 
+`emeraldOreUpdateSuppressor`
+* Makes all emerald ore blocks act as an update suppressor
+* Type : boolean
+* Default : false
+
 ### Loggers :
 `tps`
 * Allows you to see tps and mspt of server

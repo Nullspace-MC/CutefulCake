@@ -59,4 +59,7 @@ public class CutefulCakeSettings {
 
     @CutefulCakeRule(description = "Allow /fill and /clone commands to produce block updates or not")
     public static boolean fillUpdates = true;
+
+    @CutefulCakeRule(description = "Makes all emerald ore blocks act as an update suppressor")
+    public static boolean emeraldOreUpdateSuppressor = false;
 }
