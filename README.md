@@ -19,13 +19,13 @@ If you have any issue, or suggestion, you can either open an issue/pull request 
 * Sets the ray size multiplier by this value
 * Type : float
 * Default : -1.0
-* Must be set either to -1.0 or a number within 0 and 1
+* Must be set either to -1.0 (random ratio) or a number within 0 and 1
 
 `loggerRefreshRate`
 * Sets at which frequency the loggers' values are recalculated
 * Type : int
 * Default : 20
-* Must be above 0
+* Must be 0 (no refresh) or above
 
 `hopperCounters`
 * Enables hopper counters
