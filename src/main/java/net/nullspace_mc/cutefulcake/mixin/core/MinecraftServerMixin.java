@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftServerMixin {
 
     // in case another mod changes level name during runtime ofc
-    @Inject(method = "setLevelName", at = @At("TAIL"))
-    private void whenLevelNameIsDefined(String levelName, CallbackInfo ci) {
+    @Inject(method = "setupWorld(Ljava/lang/String;Ljava/lang/String;JLnet/minecraft/world/level/LevelGeneratorType;Ljava/lang/String;)V", at = @At("HEAD"))
+    private void onSetupWorld(CallbackInfo ci) {
         CutefulCake.initializeCakeServer();
     }
 

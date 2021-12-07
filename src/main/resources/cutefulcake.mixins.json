@@ -4,8 +4,6 @@
   "package": "net.nullspace_mc.cutefulcake.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "server": [
     "core.CommandManagerMixin",
     "core.MinecraftServerMixin",
     "core.PlayerListHeaderS2CPacketMixin",
@@ -16,6 +14,8 @@
     "feature.emeraldOreUpdateSuppressor.OreBlockMixin",
     "counter.HopperBlockEntityMixin",
     "tick.MinecraftServerMixin"
+  ],
+  "server": [
   ],
   "injectors": {
     "defaultRequire": 1
